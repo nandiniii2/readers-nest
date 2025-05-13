@@ -1,0 +1,41 @@
+@use './theme.scss' as theme;
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: #f3e9dc; // Warmer beige
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6, .app-title {
+  font-family: 'Playfair Display', serif;
+}
+
+mat-toolbar h1{
+  font-family: 'Playfair Display', serif !important;
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0 auto; /* optional: center-align the title */
+}
+
+mat-sidenav {
+  background-color: #A1887F !important; // or #8D6E63
+  color: #3E2723; // Dark brown text
+}
+
+mat-sidenav-container {
+  background-color: #f3e9dc !important;
+}
+
+body {
+  background-color: #f3e9dc !important;
+  font-family: 'Lato', sans-serif !important;
+}
