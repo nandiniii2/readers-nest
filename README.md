@@ -1,27 +1,44 @@
-# UI
+# Readers Nest – Full-Stack Library Management System (Angular 15)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.3.
+**Readers Nest** is a fully functional Library Management System developed using **Angular 15** for the frontend, with a connected backend API and database. It supports user authentication, role-based access control, and core library operations — all wrapped in a modern, book-inspired UI.
 
-## Development server
+The project was built alongside a reference tutorial video, with custom enhancements in styling, theming, and UI layout.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+---
 
-## Code scaffolding
+## Core Functionalities
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### 1. User Authentication System
+- New users can **register** with a valid email and password.
+- Existing users can **log in** to securely access their library account.
+- The login state is persistent using **JWT tokens**, stored in the browser.
 
-## Build
+### 2. JWT-Based Authentication
+- Authenticated sessions use **JSON Web Tokens** to authorize requests.
+- Tokens are stored locally to maintain user state even after page reloads.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### 3. Role-Based Authorization
+- **Admin Role:**
+  - Full access to all system features
+  - Manage users, books, and categories
+  - View all orders and apply restrictions
+- **User Role:**
+  - View available books
+  - Place orders and view personal history
+  - Return books and monitor fines
 
-## Running unit tests
+### 4. Book & Category Management
+- Admin can:
+  - Add or delete **book records**
+  - Create and manage **book categories**
+  - Track inventory and usage
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### 5. User Blocking/Disabling
+- Admin has the ability to:
+  - **Block** or **unblock** any registered user
+  - **Disable** accounts for violation or inactivity
+  - Enforce stricter control over user access
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### 6. Fine Calculation System
+- The system automatically calculates a **fine** if a user fails to return a book by the due date.
+- Users can view their outstanding fine directly in the UI.
