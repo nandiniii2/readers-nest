@@ -4,6 +4,20 @@ using Microsoft.Data.Sqlite;
 
 namespace API.DataAccess
 {
+    public class SqliteBoolHandler : SqlMapper.TypeHandler<bool>
+    {
+        public override void SetValue(System.Data.IDbDataParameter parameter, bool value)
+        {
+            parameter.Value = value ? 1 : 0;
+        }
+
+        public override bool Parse(object value)
+        {
+            if (value == null || value is DBNull) return false;
+            return Convert.ToInt64(value) == 1;
+        }
+    }
+
     public class DataAccess : IDataAccess
     {
         private readonly IConfiguration configuration;
@@ -11,6 +25,7 @@ namespace API.DataAccess
 
         public DataAccess(IConfiguration _configuration)
         {
+            SqlMapper.AddTypeHandler(new SqliteBoolHandler());
             configuration = _configuration;
             DbConnection = configuration["connectionStrings:DBConnect"] ?? "";
             InitializeDatabase();
