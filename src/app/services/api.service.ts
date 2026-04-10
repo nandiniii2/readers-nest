@@ -8,8 +8,8 @@ import { Book, Category, Order, User, UserType } from '../models/models';
   providedIn: 'root',
 })
 export class ApiService {
-  baseUrl = 'https://localhost:7038/api/Library/';
-  constructor(private http: HttpClient, private jwt: JwtHelperService) {}
+  baseUrl = '/api/Library/';
+  constructor(private http: HttpClient, private jwt: JwtHelperService) { }
 
   createAccount(user: User) {
     return this.http.post(this.baseUrl + 'CreateAccount', user, {

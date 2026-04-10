@@ -16,6 +16,11 @@ import { UsersListComponent } from './users-list/users-list.component';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
+  {
     path: 'books/library',
     component: LibraryComponent,
     canActivate: [AuthenticationGuard],
